@@ -54,3 +54,7 @@ func (c *Containers) Remove(index int)(error){
 func (c *Containers) Size(index int)int{
 	return len(c.array[index])
 }
+// Capacity return capacity of the Container
+func (c *Containers) Capacity(index int) int{
+	return cap(c.array[index])
+}
