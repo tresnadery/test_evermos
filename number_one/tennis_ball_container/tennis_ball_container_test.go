@@ -50,6 +50,6 @@ func TestRemoveTennisBall(t *testing.T){
 	assert.True(t, containers.IsEmpty(0))
 	err := containers.Remove(0)
 	if assert.Error(t, err){
-		assert.Equal(t, errEmptyContainer.Error(), "container is empty")
+		assert.Equal(t, err.Error(), "container is empty")
 	}
 }

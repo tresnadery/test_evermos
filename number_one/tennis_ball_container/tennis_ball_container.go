@@ -6,7 +6,10 @@ import(
 	"fmt"
 	"time"
 )
-
+var (
+	errEmptyContainer = errors.New("container is empty")
+	errIndexLessThanZero = errors.New("index is less than 0")
+)
 // Containers structure
 type Containers struct{
 	array [][]int
