@@ -23,3 +23,7 @@ func New(customers ...interface{})*Queue{
 func (q *Queue) Enqueue(customers ...interface{}){
 	q.array = append(q.array, customers...)
 }
+// Size return size of the Queue
+func (q *Queue) Size()int{
+	return len(q.array)
+}
