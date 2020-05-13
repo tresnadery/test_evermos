@@ -27,3 +27,7 @@ func (q *Queue) Enqueue(customers ...interface{}){
 func (q *Queue) Size()int{
 	return len(q.array)
 }
+// IsEmpty check if Queue is empty or not
+func (q *Queue) IsEmpty()bool{
+	return q.Size() == 0
+}
