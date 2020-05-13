@@ -66,3 +66,7 @@ func (c *Containers) IsFull(index int) bool{
 func (c *Containers) IsEmpty(index int) bool{	
 	return c.Size(index) == 0
 }
+// Verified print container verified
+func (c *Containers) Verified(index int)string{
+	return fmt.Sprintf("Container number %d is full", index+1)
+}
