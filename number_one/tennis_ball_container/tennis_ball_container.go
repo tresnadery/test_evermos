@@ -58,3 +58,7 @@ func (c *Containers) Size(index int)int{
 func (c *Containers) Capacity(index int) int{
 	return cap(c.array[index])
 }
+// IsFull checks if the container is full
+func (c *Containers) IsFull(index int) bool{
+	return c.Size(index) == c.Capacity(index)
+}
