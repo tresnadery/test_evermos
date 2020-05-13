@@ -19,3 +19,7 @@ func New(customers ...interface{})*Queue{
 	q.Enqueue(customers...)
 	return q
 }
+// Enqueue add customer to Queue
+func (q *Queue) Enqueue(customers ...interface{}){
+	q.array = append(q.array, customers...)
+}
