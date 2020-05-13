@@ -52,3 +52,11 @@ func (q *Queue) Peek()(interface{}, error){
 	}	
 	return q.array[0], nil
 }
+// GetCustomers retuen customers
+func (q *Queue) GetCustomers()([]interface{}){
+	customers := make([]interface{}, 0, q.Size())
+	for _, val := range q.array{
+		customers = append(customers, val)
+	}
+	return customers
+}
