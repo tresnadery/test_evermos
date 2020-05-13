@@ -45,3 +45,10 @@ func (q *Queue) Dequeue()(interface{}, error){
 func (q *Queue) Clear(){
 	q.array = nil
 }
+// Peek return front of the queue
+func (q *Queue) Peek()(interface{}, error){
+	if q.IsEmpty(){
+		return nil, errQueueIsEmpty
+	}	
+	return q.array[0], nil
+}
