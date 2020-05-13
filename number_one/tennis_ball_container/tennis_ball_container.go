@@ -62,3 +62,7 @@ func (c *Containers) Capacity(index int) int{
 func (c *Containers) IsFull(index int) bool{
 	return c.Size(index) == c.Capacity(index)
 }
+// IsEmpty checks if the container is empty
+func (c *Containers) IsEmpty(index int) bool{	
+	return c.Size(index) == 0
+}
