@@ -41,3 +41,7 @@ func (q *Queue) Dequeue()(interface{}, error){
 	q.array = q.array[1:]
 	return customer, nil
 }
+// Clear clean Queue
+func (q *Queue) Clear(){
+	q.array = nil
+}
