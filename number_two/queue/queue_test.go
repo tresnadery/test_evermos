@@ -61,3 +61,16 @@ func TestGetCustomers (t *testing.T){
 	queue.Enqueue("jhon", "doe", "alex")
 	assert.True(t, reflect.DeepEqual(queue.GetCustomers(), []interface{}{"jhon", "doe", "alex"}))
 }
+func TestClear(t *testing.T){
+	queue := New()
+	assert.Equal(t, queue.Size(), 0)
+	assert.Equal(t, queue.IsEmpty(), true)
+
+	queue.Enqueue("jhon")
+	assert.Equal(t, queue.IsEmpty(), false)
+	assert.Equal(t, queue.Size(), 1)
+
+	queue.Clear()
+	assert.Equal(t, queue.IsEmpty(), true)
+	assert.Equal(t, queue.Size(), 0)
+}
