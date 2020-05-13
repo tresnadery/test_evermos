@@ -34,3 +34,7 @@ func RandomizeNumber(max int)int{
 	rand.Seed(time.Now().UnixNano())
 	return rand.Intn(max)
 }
+// AddContainer add container with size
+func (c *Containers) AddContainer(size int){
+	c.array = append(c.array, make([]int, 0, size))
+}
