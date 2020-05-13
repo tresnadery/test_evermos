@@ -36,3 +36,22 @@ func TestDequeue(t *testing.T){
 	assert.Equal(t, err.Error(), "queue is empty")
 
 }
+
+func TestPeek(t *testing.T){
+	queue := New()
+
+	queue.Enqueue("jhon")
+	customer, err := queue.Peek()
+	assert.Nil(t, err)
+	assert.Equal(t, customer, "jhon")
+
+	queue.Dequeue()	
+	_, err = queue.Peek()
+	assert.NotNil(t, err)
+	assert.Equal(t, err.Error(), "queue is empty")
+	
+	queue.Enqueue("doe")
+	customer, err = queue.Peek()
+	assert.Nil(t, err)
+	assert.Equal(t, customer, "doe")
+}
