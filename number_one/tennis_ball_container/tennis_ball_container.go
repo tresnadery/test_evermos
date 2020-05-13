@@ -38,3 +38,7 @@ func RandomizeNumber(max int)int{
 func (c *Containers) AddContainer(size int){
 	c.array = append(c.array, make([]int, 0, size))
 }
+// Put add ball to container
+func (c *Containers) Put(index int){	
+	c.array[index] = append(c.array[index], 1)	
+}
