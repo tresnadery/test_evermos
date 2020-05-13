@@ -55,3 +55,9 @@ func TestPeek(t *testing.T){
 	assert.Nil(t, err)
 	assert.Equal(t, customer, "doe")
 }
+func TestGetCustomers (t *testing.T){
+	queue := New()
+
+	queue.Enqueue("jhon", "doe", "alex")
+	assert.True(t, reflect.DeepEqual(queue.GetCustomers(), []interface{}{"jhon", "doe", "alex"}))
+}
