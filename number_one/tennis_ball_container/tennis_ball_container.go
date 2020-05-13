@@ -19,3 +19,18 @@ func New(containerSize ...int) *Containers{
 	}
 	return container
 }
+// RandomizeArray factory to generate random array int
+func RandomizeArray()[]int{
+	var array []int
+	rand.Seed(time.Now().UnixNano())
+	totalData := rand.Intn(100)
+	for count := 1; count <= totalData; count++{
+		array = append(array, rand.Intn(100))
+	}
+	return array
+}
+// RandomizeNumber factory to generate random int
+func RandomizeNumber(max int)int{
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(max)
+}
