@@ -31,3 +31,13 @@ func (q *Queue) Size()int{
 func (q *Queue) IsEmpty()bool{
 	return q.Size() == 0
 }
+// Dequeue remove customer from Queue
+func (q *Queue) Dequeue()(interface{}, error){
+	if q.IsEmpty(){
+		return nil, errQueueIsEmpty
+	}
+	customer := q.array[0]
+	q.array[0] = nil
+	q.array = q.array[1:]
+	return customer, nil
+}
