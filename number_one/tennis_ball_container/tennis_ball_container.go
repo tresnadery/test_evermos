@@ -50,3 +50,7 @@ func (c *Containers) Remove(index int)(error){
 	c.array[index] = c.array[index][:len(c.array[index])- 1]
 	return nil
 }
+// Size return size of the Container
+func (c *Containers) Size(index int)int{
+	return len(c.array[index])
+}
