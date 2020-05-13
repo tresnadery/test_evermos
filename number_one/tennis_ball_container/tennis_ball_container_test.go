@@ -36,3 +36,18 @@ func TestUnVerifiedContainer(t *testing.T){
 	assert.NotEqual(t, fmt.Sprintf("Container number %d is full", 2), containers.Verified(0))
 	assert.False(t, reflect.DeepEqual(containers.array[0], []int{1, 1}))
 }
+
+func TestRemoveTennisBall(t *testing.T){
+	containers := New()	
+	for i := 0; i < 2; i++{
+		containers.AddContainer(2)
+	}
+	containers.Put(0)	
+	containers.Remove(0)
+	assert.Equal(t, 0, containers.Size(0))
+	assert.True(t, containers.IsEmpty(0))
+	err := containers.Remove(0)
+	if assert.Error(t, err){
+		assert.Equal(t, errEmptyContainer.Error(), "container is empty")
+	}
+}
