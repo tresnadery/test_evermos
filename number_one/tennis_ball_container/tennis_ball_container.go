@@ -42,3 +42,11 @@ func (c *Containers) AddContainer(size int){
 func (c *Containers) Put(index int){	
 	c.array[index] = append(c.array[index], 1)	
 }
+// Remove remove ball from container
+func (c *Containers) Remove(index int)(error){
+	if c.IsEmpty(index){
+		return errEmptyContainer
+	}	
+	c.array[index] = c.array[index][:len(c.array[index])- 1]
+	return nil
+}
