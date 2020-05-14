@@ -30,6 +30,14 @@ func main(){
 			break
 		}
 		count++
+		if Room.array[i][2] == "."{			
+			for j := 2; j < 7; j++{				
+				if Room.array[i][j] == "#"{
+					break
+				}
+				count++
+			} 
+		}
 	}	
 	fmt.Println(count)
 }
