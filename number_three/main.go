@@ -35,7 +35,15 @@ func main(){
 				if Room.array[i][j] == "#"{
 					break
 				}
-				count++
+				count++					
+				if Room.array[i + 1][j] == "."{			
+					for k := (i+1); k < 6; k++{
+						if Room.array[k][j] == "#"{
+							break
+						}
+						count++
+					}		
+				}					
 			} 
 		}
 	}	
