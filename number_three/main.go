@@ -47,5 +47,5 @@ func main(){
 			} 
 		}
 	}	
-	fmt.Println(count)
+	fmt.Printf("dot become the posibility to find key is %d dot.\n", count)
 }
