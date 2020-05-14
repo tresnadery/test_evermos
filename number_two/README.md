@@ -2,7 +2,7 @@
 
 ### Install Package
 ```
-go get github.com/tresnadery/test_evermos/number_one/queue
+go get github.com/tresnadery/test_evermos/number_two/queue
 ```
 
 ### Run The Program
