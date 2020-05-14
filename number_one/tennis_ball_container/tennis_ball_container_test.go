@@ -1,20 +1,19 @@
 package tennis_ball_container
 
-import(
-	"testing"
+import (
 	"fmt"
-	"reflect"	
+	"reflect"
+	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-
-func TestVerifiedContainer(t *testing.T){	
-	containers := New()	
-	for i := 0; i < 2; i++{
+func TestVerifiedContainer(t *testing.T) {
+	containers := New()
+	for i := 0; i < 2; i++ {
 		containers.AddContainer(2)
 	}
-	containers.Put(0)	
+	containers.Put(0)
 	containers.Put(1)
 	containers.Put(1)
 
@@ -24,9 +23,9 @@ func TestVerifiedContainer(t *testing.T){
 	assert.True(t, reflect.DeepEqual(containers.array[1], []int{1, 1}))
 }
 
-func TestUnVerifiedContainer(t *testing.T){
+func TestUnVerifiedContainer(t *testing.T) {
 	containers := New()
-	for i := 0; i < 2; i++{
+	for i := 0; i < 2; i++ {
 		containers.AddContainer(2)
 	}
 	containers.Put(0)
@@ -39,17 +38,17 @@ func TestUnVerifiedContainer(t *testing.T){
 	assert.False(t, reflect.DeepEqual(containers.array[0], []int{1, 1}))
 }
 
-func TestRemoveTennisBall(t *testing.T){
-	containers := New()	
-	for i := 0; i < 2; i++{
+func TestRemoveTennisBall(t *testing.T) {
+	containers := New()
+	for i := 0; i < 2; i++ {
 		containers.AddContainer(2)
 	}
-	containers.Put(0)	
+	containers.Put(0)
 	containers.Remove(0)
 	assert.Equal(t, 0, containers.Size(0))
 	assert.True(t, containers.IsEmpty(0))
 	err := containers.Remove(0)
-	if assert.Error(t, err){
+	if assert.Error(t, err) {
 		assert.Equal(t, err.Error(), "container is empty")
 	}
 }

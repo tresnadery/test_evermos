@@ -1,21 +1,21 @@
 package queue
 
-import(	
+import (
 	"testing"
-	
-	"reflect"
+
 	"github.com/stretchr/testify/assert"
+	"reflect"
 )
 
-func TestEnqueue(t *testing.T){
+func TestEnqueue(t *testing.T) {
 	queue := New("jhon", "doe")
 	queue.Enqueue("alex")
 
-	assert.Equal(t, queue.Size(), 3)	
+	assert.Equal(t, queue.Size(), 3)
 	assert.True(t, reflect.DeepEqual(queue.GetCustomers(), []interface{}{"jhon", "doe", "alex"}))
 }
 
-func TestDequeue(t *testing.T){
+func TestDequeue(t *testing.T) {
 	queue := New("jhon", "doe")
 
 	customer, err := queue.Dequeue()
@@ -37,7 +37,7 @@ func TestDequeue(t *testing.T){
 
 }
 
-func TestPeek(t *testing.T){
+func TestPeek(t *testing.T) {
 	queue := New()
 
 	queue.Enqueue("jhon")
@@ -45,23 +45,23 @@ func TestPeek(t *testing.T){
 	assert.Nil(t, err)
 	assert.Equal(t, customer, "jhon")
 
-	queue.Dequeue()	
+	queue.Dequeue()
 	_, err = queue.Peek()
 	assert.NotNil(t, err)
 	assert.Equal(t, err.Error(), "queue is empty")
-	
+
 	queue.Enqueue("doe")
 	customer, err = queue.Peek()
 	assert.Nil(t, err)
 	assert.Equal(t, customer, "doe")
 }
-func TestGetCustomers (t *testing.T){
+func TestGetCustomers(t *testing.T) {
 	queue := New()
 
 	queue.Enqueue("jhon", "doe", "alex")
 	assert.True(t, reflect.DeepEqual(queue.GetCustomers(), []interface{}{"jhon", "doe", "alex"}))
 }
-func TestClear(t *testing.T){
+func TestClear(t *testing.T) {
 	queue := New()
 	assert.Equal(t, queue.Size(), 0)
 	assert.Equal(t, queue.IsEmpty(), true)
